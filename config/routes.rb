@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :questions
+
   get "homepage/index"
 
   root 'homepage#index'
@@ -14,4 +16,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # Questions routes
+  post "/questions", to: "questions#create"
+  patch "/questions/:id", to: "questions#update"
+  delete "/questions/:id", to: "questions#destroy"
+  get "/questions", to: "questions#index"
+  get "/questions/:id", to: "questions#show"
 end
